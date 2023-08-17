@@ -1,7 +1,7 @@
 [Unit]
 Description=gunicorn socket
 [Socket]
-ListenStream=/home/ubuntu/studybud/studybud/studybud.sock
+ListenStream=/run/gunicorn.sock
 [Install]
 WantedBy=sockets.target
 
