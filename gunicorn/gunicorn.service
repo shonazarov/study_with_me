@@ -1,18 +1,15 @@
-
-[Install]
-WantedBy=multi-user.target
-
-
 [Unit]
 Description=gunicorn daemon
 Requires=gunicorn.socket
 After=network.target
-
 [Service]
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/studyWithMe
-ExecStart=/usr/local/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ubuntu/studyWithMe/studybud/studybud.sock studybud.wsgi:application
-
+ExecStart=/home/ubuntu/env/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          study_bud.wsgi:application
 [Install]
 WantedBy=multi-user.target
