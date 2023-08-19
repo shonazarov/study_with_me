@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/studybud
+    destination: /home/ubuntu/studyWithMe
 permissions:
-  - object: /home/ubuntu/studybud
+  - object: /home/ubuntu/studyWithMe
     owner: ubuntu
     group: ubuntu
 hooks:
