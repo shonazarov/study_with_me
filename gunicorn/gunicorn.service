@@ -1,12 +1,15 @@
 [Unit]
-Description=gunicorn daemon for your Django project
+Description=gunicorn daemon
+Requires=gunicorn.socket
 After=network.target
-
 [Service]
 User=ubuntu
-Group=ubuntu
+Group=www-data
 WorkingDirectory=/home/ubuntu/studyWithMe
-ExecStart=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/tmp/gunicorn.sock studybud.wsgi:application
-
+ExecStart=/home/ubuntu/env/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          studybud.wsgi:application
 [Install]
 WantedBy=multi-user.target
